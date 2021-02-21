@@ -20,7 +20,7 @@ public class Elenco extends ArrayList<Studente>{
 		}
 		return csv;
 	}
-	public void creaFile (JFrame finestra) throws IOException {
+	public void creaFile (AddDialog finestra) throws IOException {
 		JFileChooser ciuser= new JFileChooser();
 		ciuser.setFileFilter( new TxtFileFilter() );
 		int n = ciuser.showSaveDialog( finestra );
@@ -32,7 +32,7 @@ public class Elenco extends ArrayList<Studente>{
 			fw.close();
 		}
 	}
-	public void leggiFile(JFrame finestra) throws IOException, FileNotFoundException {
+	public void leggiFile(AddDialog finestra) throws IOException, FileNotFoundException {
 		JFileChooser fileChooser = new JFileChooser(); 
 		fileChooser.setFileFilter(new TxtFileFilter()); 
 		int n = fileChooser.showOpenDialog(finestra); 

@@ -126,6 +126,7 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 			id.setSize(800, 600);
 			id.setVisible(true);
 		}
+		
 	}
 
 }

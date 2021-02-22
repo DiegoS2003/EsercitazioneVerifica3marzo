@@ -22,6 +22,7 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 	private JButton add;
 	private ImageIcon icon;
 	private Elenco elenco;
+	private String boxContent;
 	
 	public void initComponents() {
 		this.setLayout(new GridLayout(2,3));
@@ -35,9 +36,14 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 		tab = new JTable(dft);
 		pane = new JScrollPane(tab);
 		
+		box=new JComboBox();
+		box.addItem("4A");
+		box.addItem("4B");
+		box.addItem("4C");
+		box.addItem("4E");
+		box.addItem("4F");
+		box.setSelectedItem(null);
 		
-		String classe[]= {"Classi","4A","4B","4C","4E","4F","4G" };
-		box=new JComboBox(classe);
 		panelBox.add(box);
 		panelBox.setSize(50, 50);
 		box.addActionListener(this); //se non funziona provare con box.AddActionListener(panelBox)
@@ -54,6 +60,7 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 		this.add(panelIm);
 		this.add(add);
 		
+		
 	}
 	
 	/*public void insImmagine(JFrame finestra, ImageIcon im) {
@@ -65,11 +72,13 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 		}
 	}*/
 	
-	private void updateTab() {
+	private void updateTab(String s) {
 		dft.setRowCount(0);
 		for (int i = 0; i < elenco.size(); i++) {
-			Object[] row = { elenco.get(i).getNome(), elenco.get(i).getCognome(), elenco.get(i).getClasse() };
-			dft.addRow(row);
+			if(elenco.get(i).getClasse().contentEquals(s)) {
+				Object[] row = { elenco.get(i).getNome(), elenco.get(i).getCognome(), elenco.get(i).getClasse() };
+				dft.addRow(row);
+			}
 		}
 	}
 	
@@ -125,6 +134,9 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 			id.setTitle("Inserimento");
 			id.setSize(800, 600);
 			id.setVisible(true);
+		}
+		if(e.getSource().equals(box)) {
+			String value=(String)box.getSelectedItem();
 		}
 		
 	}

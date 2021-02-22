@@ -9,14 +9,14 @@ import javax.swing.*;
 public class AddDialog extends JDialog implements ActionListener{
 	private JLabel nome, cognome, classe, foto;
 	private JTextField addNome, addCognome, addClasse;
-	private JButton aggiungi, importImm;
+	private JButton aggiungi;// importImm;
 	private JMenuBar bar;
 	private JMenu menu;
 	private JMenuItem importa, esporta;
 	private Elenco el;
 	
 	public void initComponents() {
-		this.setLayout(new GridLayout(5,2));
+		this.setLayout(new GridLayout(2,3));
 		
 		nome=new JLabel("Nome");
 		cognome=new JLabel("Cognome");
@@ -30,8 +30,8 @@ public class AddDialog extends JDialog implements ActionListener{
 		aggiungi=new JButton("Aggiungi");
 		aggiungi.addActionListener(this);
 		
-		importImm=new JButton("Importa immagine");
-		importImm.addActionListener(this);
+		/*importImm=new JButton("Importa immagine");
+		importImm.addActionListener(this);*/
 		
 		bar=new JMenuBar();
 		menu=new JMenu("File");
@@ -40,6 +40,8 @@ public class AddDialog extends JDialog implements ActionListener{
 		menu.add(importa);
 		menu.add(esporta);
 		bar.add(menu);
+		importa.addActionListener(this);
+		importa.addActionListener(this);
 		
 		this.add(nome);
 		this.add(addNome);
@@ -47,8 +49,8 @@ public class AddDialog extends JDialog implements ActionListener{
 		this.add(addCognome);
 		this.add(classe);
 		this.add(addClasse);
-		this.add(foto);
-		this.add(importImm);
+		/*this.add(foto);
+		this.add(importImm);*/
 		this.add(aggiungi);
 		this.add(bar);
 		

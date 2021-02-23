@@ -37,11 +37,41 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 		pane = new JScrollPane(tab);
 		
 		box=new JComboBox();
+		box.addItem("1A");
+		box.addItem("1B");
+		box.addItem("1C");
+		box.addItem("1D");
+		box.addItem("1E");
+		box.addItem("1F");
+		box.addItem("1G");
+		box.addItem("2A");
+		box.addItem("2B");
+		box.addItem("2C");
+		box.addItem("2D");
+		box.addItem("2E");
+		box.addItem("2F");
+		box.addItem("2G");
+		box.addItem("3A");
+		box.addItem("3B");
+		box.addItem("3C");
+		box.addItem("3D");
+		box.addItem("3E");
+		box.addItem("3F");
+		box.addItem("3G");
 		box.addItem("4A");
 		box.addItem("4B");
 		box.addItem("4C");
+		box.addItem("4D");
 		box.addItem("4E");
 		box.addItem("4F");
+		box.addItem("4G");
+		box.addItem("5A");
+		box.addItem("5B");
+		box.addItem("5C");
+		box.addItem("5D");
+		box.addItem("5E");
+		box.addItem("5F");
+		box.addItem("5G");
 		box.setSelectedItem(null);
 		
 		panelBox.add(box);
@@ -62,15 +92,6 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 		
 		
 	}
-	
-	/*public void insImmagine(JFrame finestra, ImageIcon im) {
-		JFileChooser fileChooser = new JFileChooser(); 
-		int n = fileChooser.showOpenDialog(finestra);
-		if (n == JFileChooser.APPROVE_OPTION) {
-			File f = fileChooser.getSelectedFile();
-			im = new ImageIcon (f.getAbsolutePath());
-		}
-	}*/
 	
 	private void updateTab(String s) {
 		dft.setRowCount(0);
@@ -99,6 +120,18 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
+		if(e.getSource().equals(tab)) {
+			if(tab.getSelectedRow() != -1) {
+				int i = tab.getSelectedRow();
+				if(elenco.get(i) != null) {
+					Studente studente = elenco.get(i);
+					icon = new ImageIcon (studente.getPath());
+					label.setIcon(icon);
+
+				}
+			}
+		}	
+		icon = new ImageIcon ();
 	}
 
 	@Override

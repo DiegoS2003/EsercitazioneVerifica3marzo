@@ -126,7 +126,6 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 				int i = tab.getSelectedRow();
 				if(elenco.get(i) != null) {
 					Studente studente = elenco.get(i);
-					System.out.println(studente.getPath());
 					icon = new ImageIcon (studente.getPath());
 					label.setIcon(icon);
 

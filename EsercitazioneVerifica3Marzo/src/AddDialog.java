@@ -111,8 +111,8 @@ public class AddDialog extends JDialog implements ActionListener{
 		if(e.getSource().equals(aggiungi)){
 			String path=insImmagine(this);
 			Studente s=new Studente (addNome.getText(),addCognome.getText(), (String)boxClasse.getSelectedItem(), path);
-			
 			el.add(s);
+			this.dispose();
 		}
 		
 		if(e.getSource().equals(importa)) {

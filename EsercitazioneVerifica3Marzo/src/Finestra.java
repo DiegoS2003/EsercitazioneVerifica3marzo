@@ -84,6 +84,7 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 		label=new JLabel();
 		panelIm.add(label);
 		
+		tab.addMouseListener(this);
 		
 		this.add(pane);
 		this.add(panelBox);
@@ -125,13 +126,14 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 				int i = tab.getSelectedRow();
 				if(elenco.get(i) != null) {
 					Studente studente = elenco.get(i);
+					System.out.println(studente.getPath());
 					icon = new ImageIcon (studente.getPath());
 					label.setIcon(icon);
 
 				}
 			}
 		}	
-		icon = new ImageIcon ();
+		//icon = new ImageIcon ();
 	}
 
 	@Override
@@ -162,14 +164,14 @@ public class Finestra extends JFrame implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource().equals(add)) {
-			AddDialog id =null;
-			id = new AddDialog(this, true, elenco);
+			AddDialog id = new AddDialog(this, true, elenco);
 			id.setTitle("Inserimento");
 			id.setSize(800, 600);
 			id.setVisible(true);
 		}
 		if(e.getSource().equals(box)) {
 			String value=(String)box.getSelectedItem();
+			updateTab(value);
 		}
 		
 	}

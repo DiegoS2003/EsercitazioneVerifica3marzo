@@ -16,9 +16,13 @@ public class Elenco extends ArrayList<Studente>{
 	public String createCsv() {
 		String csv= "";
 		for(int i =0; i<this.size(); i++) { 
-			csv+= this.get(i).getNome() + ";" + this.get(i).getCognome() + ";" + this.get(i).getClasse() + "\n";
+			csv+= this.get(i).getNome() + ";" + this.get(i).getCognome() + ";" + this.get(i).getClasse() + ";"+ this.get(i).getPath() + "\n";
 		}
 		return csv;
+	}
+	
+	public void riempiArray() {
+		
 	}
 	public void creaFile (AddDialog finestra) throws IOException {
 		JFileChooser ciuser= new JFileChooser();
@@ -32,6 +36,7 @@ public class Elenco extends ArrayList<Studente>{
 			fw.close();
 		}
 	}
+	
 	public void leggiFile(AddDialog finestra) throws IOException, FileNotFoundException {
 		JFileChooser fileChooser = new JFileChooser(); 
 		fileChooser.setFileFilter(new TxtFileFilter()); 

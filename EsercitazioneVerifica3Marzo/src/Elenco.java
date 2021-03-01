@@ -49,4 +49,15 @@ public class Elenco extends ArrayList<Studente>{
 			fr.close();
 		}
 	}
+	
+	/*public void Serializza (AddDialog finestra) throws IOException {
+		JFileChooser ciuser= new JFileChooser();
+		int n = ciuser.showSaveDialog( finestra );
+		if ( n==JFileChooser.APPROVE_OPTION ) {
+			File f= ciuser.getSelectedFile();
+			f = new FileOutputStream(file);
+			o = new ObjectOutputStream(f);
+			o.writeObject(this);
+		}
+	}*/ //sistemare
 }

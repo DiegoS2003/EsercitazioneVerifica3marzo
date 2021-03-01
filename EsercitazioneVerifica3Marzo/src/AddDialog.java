@@ -37,7 +37,7 @@ public class AddDialog extends JDialog implements ActionListener{
 		menu.add(esporta);
 		bar.add(menu);
 		importa.addActionListener(this);
-		importa.addActionListener(this);
+		esporta.addActionListener(this);
 		
 		boxClasse=new JComboBox();
 		boxClasse.addItem("1A");
@@ -126,6 +126,7 @@ public class AddDialog extends JDialog implements ActionListener{
 		}
 		if(e.getSource().equals(esporta)) {
 			try {
+				el.createCsv();
 				el.creaFile(this);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
